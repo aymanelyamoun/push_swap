@@ -55,7 +55,7 @@ int	main(int argc, char **argv)
 	
 	stack_a = creat_stack(argc, argv);
 	arr = helper(stack_a);
-	// new_arr = helper_big(stack_a);
+	new_arr = helper_big(stack_a);
 
 	//sort(&stack_a, &stack_b, 11);
 	sort_using_helper(&stack_a, &stack_b);
@@ -71,9 +71,9 @@ int	main(int argc, char **argv)
 	// printf("+++++++++\n");
 	// print_stack(stack_a);
 	// printf("\nhere we print the helpers: \n");
-	// while(i < 4)
+	// while(i < 16)
 	// {
-	// 	printf("%d : %d\n", i+1, arr[i]);
+	// 	printf("%d : %d\n", i+1, new_arr[i]);
 	// 	i++;
 	// }
 	// printf("1: %d\n", arr[0]);

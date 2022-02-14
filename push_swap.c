@@ -265,13 +265,15 @@ int *helper_big(t_list *stack)
 	int total;
 	int *arr;
 	int i = 0;
-	int *new_arr;
+	int *new_arr, *final_arr, *final1_arr;
 	int count = 0;
 	int average;
 	
 	total = count_total(stack);
 	average = total / list_len(stack);
 	new_arr = (int *)malloc(sizeof(int) * 8);
+	final_arr = (int *)malloc(sizeof(int) * 16);
+	final1_arr = (int *)malloc(sizeof(int) * 32);
 	arr = helper(stack);
 	new_arr[count++] = (arr[i] / 2);
 	while(count < 8)
@@ -288,8 +290,30 @@ int *helper_big(t_list *stack)
 		count += 2;
 		i++;
 	}
+	count = 0;
+	i = 0;
+	final_arr[count++] = (new_arr[i] / 2);
+	while(count < 16)
+	{
+		final_arr[count] = new_arr[i];
+		i++;
+		count += 2;
+	}
+	count = 2;
+	i = 0;
+	while(i < 8)
+	{
+		final_arr[count] = (new_arr[i] + new_arr[i + 1]) / 2;
+		count += 2;
+		i++;
+	}
 	
-	return (new_arr);
+	return (final_arr);
+}
+
+void radix_sort()
+{
+
 }
 
 int has_smaller(t_list *stack, int num)
@@ -331,6 +355,7 @@ int get_smaller(t_list *stack, int num)
 void sort_using_helper(t_list **stack_a, t_list **stack_b)
 {
 	int count;
+	// int arr[] = {20, 40, 60, 80, 100};
 	int *arr;
 	int	index;
 	int	len;
@@ -341,7 +366,7 @@ void sort_using_helper(t_list **stack_a, t_list **stack_b)
 	count = -1;
 	arr = helper_big(*stack_a);
 	
-	while (++count < 6)
+	while (++count < 15)
 	{
 		while(has_smaller(*stack_a, arr[count]))
 		{

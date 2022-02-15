@@ -37,6 +37,7 @@ int get_biger(t_list *stack, int num)
 	return 0;
 }
 
+
 void make_at_top(t_list **stack, int num)
 {
 	int index;

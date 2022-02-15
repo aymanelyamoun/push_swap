@@ -311,10 +311,6 @@ int *helper_big(t_list *stack)
 	return (final_arr);
 }
 
-void radix_sort()
-{
-
-}
 
 int has_smaller(t_list *stack, int num)
 {
@@ -505,8 +501,77 @@ void sort_parts(t_list **stack_a, t_list **stack_b)
 
 
 
+// use the binary to chose the biger number;
+int has_bite(t_list *stack, int b_num)
+{
+	int	index;
 
+	index = 1;
+	while(stack != NULL)
+	{
+		if (stack->data & b_num)
+			return 1;
+		stack = stack->next;
+	}
+	return 0;
+}
 
+int bite_num(t_list *stack, int b_num)
+{
+	int	index;
+	t_list *start_top;
+	t_list *start_bottom;
+
+	start_bottom = stack;
+	start_top = stack;
+	while (start_bottom->next != NULL)
+		start_bottom = start_bottom->next;
+	while(start_top != NULL && start_bottom != NULL)
+	{
+		if (start_top->data & b_num)
+			return start_top->data;
+		else if(start_bottom->data & b_num)
+			return start_bottom->data;
+		start_top = start_top->next;
+		start_bottom = start_bottom->prev;
+	}
+	return 0;
+}
+
+void radix_sort(stack_t **stack_a, stack_t **stack_b, int b_num)
+{
+	
+}
+
+void sort_using_helper(t_list **stack_a, t_list **stack_b)
+{
+	int	index;
+	int	len;
+	int	bite;
+	int	smaller;
+	int top;
+	int smalest;
+
+	
+	while(has_bite(*stack_a, bite))
+	{
+		len = list_len(*stack_a);
+		smaller = bite_num(*stack_a, bite);
+		index = index_of(*stack_a, smaller);
+		while(top != smaller)
+		{
+			if (index <= (len / 2))
+				ra(stack_a);
+			else
+				rra(stack_a);
+			top = (*stack_a)->data;
+			// if (top <= )
+			// {
+			// }
+		}
+		pb(stack_a, stack_b);
+	}
+}
 
 
 

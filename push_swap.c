@@ -552,7 +552,8 @@ void sort_using_helper(t_list **stack_a, t_list **stack_b)
 	int top;
 	int smalest;
 
-	
+	//loop over every bite.
+	//find where to stop.
 	while(has_bite(*stack_a, bite))
 	{
 		len = list_len(*stack_a);
@@ -565,11 +566,11 @@ void sort_using_helper(t_list **stack_a, t_list **stack_b)
 			else
 				rra(stack_a);
 			top = (*stack_a)->data;
-			// if (top <= )
-			// {
-			// }
+			if (top == smaller)
+			{
+				pb(stack_a, stack_b);
+			}
 		}
-		pb(stack_a, stack_b);
 	}
 }
 

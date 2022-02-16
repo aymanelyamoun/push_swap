@@ -574,21 +574,10 @@ void sort_using_radix(t_list **stack_a, t_list **stack_b)
 	{
 		while(has_bite(*stack_a, bite))
 		{
-			len = list_len(*stack_a);
-			//zero_biter = bite_num(*stack_a, bite);
-			index = index_of(*stack_a, zero_biter);
-			while(top != zero_biter)
-			{
-				if (index <= (len / 2))
-					ra(stack_a);
-				else
-					rra(stack_a);
-				top = (*stack_a)->data;
-				if (top == zero_biter)
-				{
-					pb(stack_a, stack_b);
-				}
-			}
+			if ((*stack_a)->data & bite)
+				ra(stack_a);
+			else
+				pb(stack_a, stack_b);
 		}
 		push_all_to_a(stack_a, stack_b);
 		bite = bite << 1;

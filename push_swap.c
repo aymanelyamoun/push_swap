@@ -516,6 +516,20 @@ int has_bite(t_list *stack, int b_num)
 	return 0;
 }
 
+int stop_looping(t_list *stack, int b_num)
+{
+	int	index;
+
+	index = 1;
+	while(stack != NULL)
+	{
+		if ((stack->data & b_num))
+			return 1;
+		stack = stack->next;
+	}
+	return 0;
+}
+
 int bite_num(t_list *stack, int b_num)
 {
 	int	index;
@@ -538,45 +552,51 @@ int bite_num(t_list *stack, int b_num)
 	return 0;
 }
 
-void radix_sort(stack_t **stack_a, stack_t **stack_b, int b_num)
+void push_all_to_a(t_list **stack_a,t_list **stack_b)
 {
-	
+	while(*stack_b != NULL)
+	{
+		pa(stack_b, stack_a);
+	}
 }
 
-void sort_using_helper(t_list **stack_a, t_list **stack_b)
+void sort_using_radix(t_list **stack_a, t_list **stack_b)
 {
 	int	index;
 	int	len;
-	int	bite;
+	int	bite = 1;
 	int	zero_biter;
 	int top;
-	int smalest;
 
 	//loop over every bite.
 	//find where to stop.
-	// while(){}
-	while(has_bite(*stack_a, bite))
+	while(stop_looping(*stack_a, bite))
 	{
-		len = list_len(*stack_a);
-		zero_biter = bite_num(*stack_a, bite);
-		index = index_of(*stack_a, zero_biter);
-		while(top != zero_biter)
+		while(has_bite(*stack_a, bite))
 		{
-			if (index <= (len / 2))
-				ra(stack_a);
-			else
-				rra(stack_a);
-			top = (*stack_a)->data;
-			if (top == zero_biter)
+			len = list_len(*stack_a);
+			//zero_biter = bite_num(*stack_a, bite);
+			index = index_of(*stack_a, zero_biter);
+			while(top != zero_biter)
 			{
-				pb(stack_a, stack_b);
+				if (index <= (len / 2))
+					ra(stack_a);
+				else
+					rra(stack_a);
+				top = (*stack_a)->data;
+				if (top == zero_biter)
+				{
+					pb(stack_a, stack_b);
+				}
 			}
 		}
+		push_all_to_a(stack_a, stack_b);
+		bite = bite << 1;
 	}
 }
 
 //make a function that look up for the next to smallest and calculate the moves before it start rotating 
-
+//oufisaou
 
 
 

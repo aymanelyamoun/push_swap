@@ -59,9 +59,10 @@ int	main(int argc, char **argv)
 	new_arr = helper_big(stack_a);
 
 	//sort(&stack_a, &stack_b, 11);
-	sort_using_helper(&stack_a, &stack_b);
-	sor_last_chunk(&stack_a, &stack_b);
-	sor_full_stack(&stack_a, &stack_b);
+	// sort_using_helper(&stack_a, &stack_b);
+	// sor_last_chunk(&stack_a, &stack_b);
+	// sor_full_stack(&stack_a, &stack_b);
+	sort_using_radix(&stack_a, &stack_b);
 	// sort_using_helper2(&stack_b, &stack_a);
 	// sort_stack(&stack_b, &stack_a);
 	// repeat(&stack_a, &stack_b);
@@ -69,8 +70,8 @@ int	main(int argc, char **argv)
 	// printf("the index : %d ", index_of(stack_a, get_smaller(stack_a, 100)));
 	// sort_parts(&stack_a, &stack_b);
 	// //sort_stack(&stack_a, &stack_b);
-	// printf("+++++++++\n");
-	// print_stack(stack_a);
+	printf("+++++++++\n");
+	print_stack(stack_a);
 	// printf("\nhere we print the helpers: \n");
 	// while(i < 16)
 	// {

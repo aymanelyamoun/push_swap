@@ -57,3 +57,7 @@ int has_biger(t_list *stack, int num);
 int get_biger(t_list *stack, int num);
 void sor_last_chunk(t_list **stack_a, t_list **stack_b);
 void sor_full_stack(t_list **stack_a, t_list **stack_b);
+int has_bite(t_list *stack, int b_num);
+int bite_num(t_list *stack, int b_num);
+void push_all_to_a(t_list **stack_a,t_list **stack_b);
+void sort_using_radix(t_list **stack_a, t_list **stack_b);
